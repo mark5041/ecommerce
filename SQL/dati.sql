@@ -28,6 +28,7 @@ marca varchar(30) not null,
 modello varchar(30) not null,
 prezzo double not null,
 quantita int default 0 check(quantita >= 0),
+img varchar(50),
 constraint p_id_prodotto primary key(id));
 
 

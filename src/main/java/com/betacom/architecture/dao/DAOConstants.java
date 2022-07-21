@@ -14,9 +14,9 @@ public interface DAOConstants {
 	String SELECT_PRODOTTO = "Select id, marca, modello, prezzo from prodotto order by marca";
 	String SELECT_BYMARCA ="Select * from prodotto where marca = ?";
 	String SELECT_BYMODELLO ="Select * from prodotto where modello = ?";
-	String UPDATE_PRODOTTO = "Update prodotto set marca = ?, modello = ?, prezzo = ? where id = ?";
+	String UPDATE_PRODOTTO = "Update prodotto set marca = ?, modello = ?, prezzo = ?, img = ? where id = ?";
 	String DELETE_PRODOTTO = "Delete from prodotto where id = ?";
-	String INSERT_PRODOTTO = "insert into prodotto (marca, modello, prezzo) values (?, ?, ?)";
+	String INSERT_PRODOTTO = "insert into prodotto (marca, modello, prezzo, img) values (?, ?, ?, ?)";
 	
 	//####################ORDINE####################
 	String SELECT_ORDINE = "Select * from ordine";

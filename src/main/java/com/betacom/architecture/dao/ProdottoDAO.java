@@ -46,6 +46,7 @@ public class ProdottoDAO implements DAOConstants {
 			pr.setString(1, p.getMarca());
 			pr.setString(2, p.getModello());
 			pr.setDouble(3, p.getPrezzo());
+			pr.setString(4, p.getImg());
 			
 			pr.execute();
 		}
@@ -90,7 +91,8 @@ public class ProdottoDAO implements DAOConstants {
 		ps.setString(1, p.getMarca());
 		ps.setString(2, p.getModello());
 		ps.setDouble(3, p.getPrezzo());
-		ps.setLong(4, p.getId());
+		ps.setString(4, p.getImg());
+		ps.setLong(5, p.getId());
 		ps.execute();
 	}
 }

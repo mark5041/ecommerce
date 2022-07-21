@@ -6,6 +6,7 @@ public class Prodotto {
 	private String modello;
 	private double prezzo;
 	private int quantita;
+	private String img;
 	
 	public long getId() {
 		return id;
@@ -36,5 +37,11 @@ public class Prodotto {
 	}
 	public void setQuantita(int quantita) {
 		this.quantita = quantita;
+	}
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String img) {
+		this.img = img;
 	}
 }
