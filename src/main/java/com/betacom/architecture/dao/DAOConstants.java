@@ -23,10 +23,4 @@ public interface DAOConstants {
     String INSERT_ORDINE = "insert into ordine (data, indirizzo, totale, id_cliente) values (?, ?, ?, ?)";
     String UPDATE_ORDINE = "Update ordine set data = ?, indirizzo = ?, totale = ?, id_cliente = ? where id_ordine = ?";
     String DELETE_ORDINE = "Delete from ordine where id_ordine = ?";
-	
-	
-	
-	
-	
-	
 }
