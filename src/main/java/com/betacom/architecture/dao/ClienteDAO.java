@@ -41,7 +41,7 @@ public class ClienteDAO implements DAOConstants {
 		return lista;
 	}
 	
-	public void create(Connection conn, Cliente c) throws SQLException {
+	public void createCliente(Connection conn, Cliente c) throws SQLException {
 		PreparedStatement pr = conn.prepareStatement(INSERT_CLIENTE);
 		if(c != null) {
 			pr.setString(1, c.getNome());
@@ -53,7 +53,7 @@ public class ClienteDAO implements DAOConstants {
 		}
 	}
 	
-	public Cliente findByUsername(Connection conn, String username) throws SQLException {
+	public Cliente clienteByUsername(Connection conn, String username) throws SQLException {
 		PreparedStatement ps = conn.prepareStatement(SELECT_BYUSERNAME);
 		ps.setString(1, username);
 		Cliente c = new Cliente();
@@ -69,13 +69,13 @@ public class ClienteDAO implements DAOConstants {
 		return c;
 	}
 	
-	public void delete(Connection conn, long id) throws SQLException {
+	public void deleteCliente(Connection conn, long id) throws SQLException {
 		PreparedStatement ps = conn.prepareStatement(DELETE_CLIENTE);
 		ps.setLong(1, id);
 		ps.execute();
 	}
 	
-	public void update(Connection conn, Cliente c) throws SQLException {
+	public void updateCliente(Connection conn, Cliente c) throws SQLException {
 		PreparedStatement ps = conn.prepareStatement(UPDATE_CLIENTE);
 		ps.setString(1, c.getNome());
 		ps.setString(2, c.getCognome());

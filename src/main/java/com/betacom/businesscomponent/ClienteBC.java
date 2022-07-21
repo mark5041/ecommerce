@@ -24,33 +24,33 @@ public class ClienteBC {
 		}
 	}
 
-	public void create(Cliente c) throws SQLException, NamingException {
+	public void createCliente(Cliente c) throws SQLException, NamingException {
 		try {
-			cDAO.create(DBAccess.getConnection(), c);
+			cDAO.createCliente(DBAccess.getConnection(), c);
 		} finally {
 			DBAccess.closeConnection();
 		}
 	}
 
-	public void update(Cliente c) throws SQLException, NamingException {
+	public void updateCliente(Cliente c) throws SQLException, NamingException {
 		try {
-			cDAO.update(DBAccess.getConnection(), c);
+			cDAO.updateCliente(DBAccess.getConnection(), c);
 		} finally {
 			DBAccess.closeConnection();
 		}
 	}
 
-	public void delete(long id) throws SQLException, NamingException {
+	public void deleteCliente(long id) throws SQLException, NamingException {
 		try {
-			cDAO.delete(DBAccess.getConnection(), id);
+			cDAO.deleteCliente(DBAccess.getConnection(), id);
 		} finally {
 			DBAccess.closeConnection();
 		}
 	}
 
-	public Cliente findByUsername(String username) throws SQLException, NamingException {
+	public Cliente clienteByUsername(String username) throws SQLException, NamingException {
 		try {
-			return cDAO.findByUsername(DBAccess.getConnection(), username);
+			return cDAO.clienteByUsername(DBAccess.getConnection(), username);
 		} finally {
 			DBAccess.closeConnection();
 		}

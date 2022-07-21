@@ -22,6 +22,7 @@ import com.betacom.businesscomponent.model.Cliente;
 @Path("/clienteservice")
 public class ClienteService {
 	
+		
 	@GET
 	@Path("/clienti")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -35,40 +36,40 @@ public class ClienteService {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Cliente getCliente(@PathParam("username") String username) throws NamingException, SQLException {
 		ClienteBC cBC = new ClienteBC();
-		return cBC.findByUsername(username);
+		return cBC.clienteByUsername(username);
 	}
 	
 	@POST
-	@Path("/create")
+	@Path("/createcliente")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Transactional
 	public Cliente createCliente(Cliente cliente) 
 			throws NamingException, SQLException, ParseException {
 		ClienteBC cBC = new ClienteBC();
-		cBC.create(cliente);
+		cBC.createCliente(cliente);
 		return cliente;
 	}
 	
 	@PUT
-	@Path("/update")
+	@Path("/updatecliente")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Transactional
-	public Cliente updateCliente(Cliente cliente) 
+	public Cliente updateProdotto(Cliente cliente) 
 			throws NamingException, SQLException, ParseException {
 		ClienteBC cBC = new ClienteBC();
-		cBC.update(cliente);
+		cBC.updateCliente(cliente);
 		return cliente;
 	}
 	
 	@DELETE
-	@Path("/delete/{id}")
+	@Path("/deletecliente/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Transactional
 	public void deleteCliente(@PathParam("id") long id) 
 			throws NamingException, SQLException {
 		ClienteBC cBC = new ClienteBC();
-		cBC.delete(id);
+		cBC.deleteCliente(id);
 	}
 }
