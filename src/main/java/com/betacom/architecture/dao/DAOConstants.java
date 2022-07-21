@@ -26,8 +26,8 @@ public interface DAOConstants {
     String CONFERMA_ORDINE = "Update ordine set status = 'confermato' where id_ordine = ?";
     
     //####################ORDINE####################
-    String SELECT_INFO_CART = "Select p.marca, p.modello, p.prezzo, inf.quantita from info_ordine inf right join prodotto p on(inf.id_prodotto = p.id) right join ordine o on(inf.id_ordine = o.id) where o.id = ? and o.status = 'non confermato'"; 
-    String SELECT_INFO_ORDER = "Select o.id, p.marca, p.modello, p.prezzo, inf.quantita from info_ordine inf right join prodotto p on (inf.id_prodotto = p.id) right join ordine o on(inf.id_ordine = o.id) where o.id_cliente = ?";
+    String SELECT_INFO_CART = "Select p.marca, p.modello, p.prezzo, inf.quantita from info_ordine inf right join prodotto p on(inf.id_prodotto = p.id) right join ordine o on(inf.id_ordine = o.id) where o.id_cliente = ? and o.status = 'non confermato'"; 
+    String SELECT_INFO_ORDER = "Select o.id, p.marca, p.modello, p.prezzo, inf.quantita from info_ordine inf right join prodotto p on (inf.id_prodotto = p.id) right join ordine o on(inf.id_ordine = o.id) where o.id_cliente = ? and o.status != 'non confermato'";
     String INSERT_INFO_ORDINE = "Insert into info_ordine(id_ordine, id_prodotto, quantita) values (?,?,?)";
     String DELETE_INFO_ORDINE = "Delete from info_ordine where id_ordine = ? and id_prodotto = ?";
     String UPDATE_INFO_ORDINE = "Update info_ordine set quantita = ? where id_ordine = ? and id_prodotto = ?";
