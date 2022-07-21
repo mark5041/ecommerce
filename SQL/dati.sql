@@ -1,5 +1,3 @@
-
-
 create table cliente(
 id int auto_increment,
 nome varchar(30) not null,
@@ -16,6 +14,7 @@ id int auto_increment,
 data date not null,
 indirizzo varchar(50) not null,
 totale double not null,
+status varchar(15) default 'non confermato',
 id_cliente int not null,
 constraint p_id_ordine primary key(id),
 constraint fk_id_cliente foreign key(id_cliente) references cliente(id) ON DELETE CASCADE ON UPDATE CASCADE);
