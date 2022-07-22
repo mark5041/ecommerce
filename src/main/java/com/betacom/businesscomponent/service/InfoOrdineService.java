@@ -34,7 +34,7 @@ public class InfoOrdineService {
 	@GET
 	@Path("/carrello/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public ArrayList<OrderConfirmed> getCart(@PathParam("id") long id) throws NamingException, SQLException {
+	public OrderConfirmed[] getCart(@PathParam("id") long id) throws NamingException, SQLException {
 		InfoOrdineBC inf = new InfoOrdineBC();
 		return inf.getCart(id);
 	}
