@@ -40,32 +40,33 @@ public class InfoOrdineService {
 	}
 	
 	@POST
-	@Path("/aggiungioordine/{prodotti}")
+	@Path("/aggiungioordine")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Transactional
-	public void createInfoOrdine(@PathParam("prodotti") ArrayList<InfoOrdine> io) 
+	public void createInfoOrdine(ArrayList<InfoOrdine> io) 
 			throws NamingException, SQLException, ParseException {
 		InfoOrdineBC inf = new InfoOrdineBC();
 		inf.createInfoOrdine(io);
 	}
 	
 	@PUT
-	@Path("/updateordine/{prodotti}")
+	@Path("/updateordine")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Transactional
-	public void updateInfoOrdine(@PathParam("prodotti") ArrayList<InfoOrdine> io) 
+	public void updateInfoOrdine(ArrayList<InfoOrdine> io) 
 			throws NamingException, SQLException, ParseException {
 		InfoOrdineBC inf = new InfoOrdineBC();
 		inf.updateInfoOrdine(io);
 	}
 	
 	@DELETE
-	@Path("/deleteordine/{prodotti}")
+	@Path("/deleteordine")
 	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
 	@Transactional
-	public void deleteCliente(@PathParam("prodotti") ArrayList<InfoOrdine> io) 
+	public void deleteCliente(ArrayList<InfoOrdine> io) 
 			throws NamingException, SQLException {
 		InfoOrdineBC inf = new InfoOrdineBC();
 		inf.deleteInfoOrdine(io);
