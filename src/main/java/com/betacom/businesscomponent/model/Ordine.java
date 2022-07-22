@@ -7,8 +7,17 @@ public class Ordine {
 	private Date data;
 	private String indirizzo;
 	private double totale;
+	private String status;
 	private long idCliente;
 	
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 	public long getIdOrdine() {
 		return idOrdine;
 	}
@@ -48,10 +57,10 @@ public class Ordine {
 	public void setIdCliente(long idCliente) {
 		this.idCliente = idCliente;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Ordine [idOrdine=" + idOrdine + ", data=" + data + ", indirizzo=" + indirizzo + ", totale=" + totale
-				+ ", idCliente=" + idCliente + "]";
+				+ ", status=" + status + ", idCliente=" + idCliente + "]";
 	}
 }

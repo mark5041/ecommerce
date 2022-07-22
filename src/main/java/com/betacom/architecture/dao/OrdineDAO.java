@@ -25,7 +25,8 @@ public class OrdineDAO implements  DAOConstants {
 			pr.setDate(1, new java.sql.Date(o.getData().getTime()));
 			pr.setString(2, o.getIndirizzo());
 			pr.setDouble(3, o.getTotale());
-			pr.setLong(4, o.getIdCliente());
+			pr.setString(4, o.getStatus());
+			pr.setLong(5, o.getIdCliente());
 			pr.execute();
 		}
 	}
@@ -44,8 +45,9 @@ public class OrdineDAO implements  DAOConstants {
                 ps.setDate(1, new java.sql.Date(o.getData().getTime()));
                 ps.setString(2, o.getIndirizzo());
                 ps.setDouble(3, totale);
-                ps.setLong(4, o.getIdCliente());
-                ps.setLong(5, o.getIdOrdine());
+                ps.setString(4, o.getStatus());
+                ps.setLong(5, o.getIdCliente());
+                ps.setLong(6, o.getIdOrdine());
                 ps.execute();
                 conn.commit();
     }
@@ -75,7 +77,8 @@ public class OrdineDAO implements  DAOConstants {
 				o.setData(new java.util.Date(rs.getDate(2).getTime()));
 				o.setIndirizzo(rs.getString(3));
 				o.setTotale(rs.getDouble(4));
-				o.setIdCliente(rs.getLong(5));
+				o.setStatus(rs.getString(5));
+				o.setIdCliente(rs.getLong(6));
 				ordini[i] = o;
 			}
 			rs.close();
