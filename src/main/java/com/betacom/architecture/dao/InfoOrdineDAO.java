@@ -95,12 +95,14 @@ public class InfoOrdineDAO implements DAOConstants {
     
     public OrderConfirmed[] getOrderConfirm(Connection conn, long id) throws SQLException  {
     	PreparedStatement ps;
-		ps = conn.prepareStatement(SELECT_INFO_ORDER);
+		ps = conn.prepareStatement(SELECT_INFO_ORDER, 
+				ResultSet.TYPE_SCROLL_INSENSITIVE, 
+				ResultSet.CONCUR_READ_ONLY);
 		ps.setLong(1, id);
 		rs = ps.executeQuery();
 		
 		rs.last();
-		OrderConfirmed[] lista = new OrderConfirmed[rs.getRow() - 1];
+		OrderConfirmed[] lista = new OrderConfirmed[rs.getRow()];
 		rs.beforeFirst();
 		int i = 0;
 		while(rs.next()) {
@@ -118,12 +120,14 @@ public class InfoOrdineDAO implements DAOConstants {
     
     public OrderConfirmed[] getCart(Connection conn, long id) throws SQLException  {
     	PreparedStatement ps;
-		ps = conn.prepareStatement(SELECT_INFO_CART);
+		ps = conn.prepareStatement(SELECT_INFO_CART, 
+				ResultSet.TYPE_SCROLL_INSENSITIVE, 
+				ResultSet.CONCUR_READ_ONLY);
 		ps.setLong(1, id);
 		rs = ps.executeQuery();
 		
 		rs.last();
-		OrderConfirmed[] lista = new OrderConfirmed[rs.getRow() - 1];
+		OrderConfirmed[] lista = new OrderConfirmed[rs.getRow()];
 		rs.beforeFirst();
 		int i = 0;
 		while(rs.next()) {
@@ -133,10 +137,9 @@ public class InfoOrdineDAO implements DAOConstants {
 			oc.setPrezzo(rs.getDouble(3));
 			oc.setQuantita(rs.getInt(4));
 			lista[i] = oc;
-			i++;
+			++i;
 		}
 		
 		return lista;
 	}
-    
 }
