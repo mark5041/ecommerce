@@ -18,10 +18,10 @@ insert into prodotto(marca, modello, prezzo) values
 ("Apple", "iPad", "1000");
 
 
+insert into ordine(data, indirizzo, totale, status, id_cliente) values
+(CURDATE(), 'via Roma, 23', 2000, 'confermato', 1);
 insert into ordine(data, indirizzo, totale, id_cliente) values
-(CURDATE(), 'via Roma, 23', 2000, 1);
-insert into ordine(data, indirizzo, totale, id_cliente) values
-(CURDATE(), 'via Roma, 23', 2000, 1);
+(CURDATE(), 'via LeManiDalNaso, 50', 2000, 1);
 insert into ordine(data, indirizzo, totale, id_cliente) values
 (CURDATE(), 'via Milano, 69', 3000, 2);
 

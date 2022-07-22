@@ -11,9 +11,9 @@ constraint p_id_cliente primary key(id));
 
 create table ordine(
 id int auto_increment,
-data date not null,
-indirizzo varchar(50) not null,
-totale double not null,
+data date,
+indirizzo varchar(50),
+totale double,
 status varchar(15) default 'non confermato',
 id_cliente int not null,
 constraint p_id_ordine primary key(id),

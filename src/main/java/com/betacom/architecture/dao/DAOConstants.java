@@ -20,10 +20,11 @@ public interface DAOConstants {
 	
 	//####################ORDINE####################
 	String SELECT_ORDINE = "Select * from ordine";
-    String INSERT_ORDINE = "insert into ordine (data, indirizzo, totale, id_cliente) values (?, ?, ?, ?)";
+    String INSERT_ORDINE = "insert into ordine (id_cliente) values (?)";
     String UPDATE_ORDINE = "Update ordine set data = ?, indirizzo = ?, totale = ?, id_cliente = ? where id_ordine = ?";
     String DELETE_ORDINE = "Delete from ordine where id_ordine = ?";
-    String CONFERMA_ORDINE = "Update ordine set status = 'confermato' where id_ordine = ?";
+    String CONFERMA_ORDINE = "Update ordine set data = CURDATE(), indirizzo = ?, totale = ?, status = 'confermato' where id_ordine = ?";
+    String ORDINE_BYID = "Select * from ordine where id = ? and status = 'non confermato'";
     
     //####################ORDINE####################
     String SELECT_INFO_CART = "Select p.marca, p.modello, p.prezzo, inf.quantita from info_ordine inf right join prodotto p on(inf.id_prodotto = p.id) right join ordine o on(inf.id_ordine = o.id) where o.id_cliente = ? and o.status = 'non confermato'"; 

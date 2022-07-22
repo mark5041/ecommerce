@@ -15,9 +15,9 @@ public class OrdineBC {
 		oDAO = OrdineDAO.getFactory();
 	}
 	
-	public void create(Ordine ordine) throws SQLException, NamingException {
+	public Ordine createOrdine(long id) throws SQLException, NamingException {
 		try {
-			OrdineDAO.getFactory().create(DBAccess.getConnection(), ordine);
+			return OrdineDAO.getFactory().createOrdine(DBAccess.getConnection(), id);
 		} finally {
 			DBAccess.closeConnection();
 		}
@@ -26,16 +26,24 @@ public class OrdineBC {
 	public Ordine[] getOrdini() throws SQLException, NamingException {
 		Ordine[] ordini = null;
 		try {
-			ordini = OrdineDAO.getFactory().getAll(DBAccess.getConnection());
+			ordini = OrdineDAO.getFactory().getOrdini(DBAccess.getConnection());
 		} finally {
 			DBAccess.closeConnection();
 		}
 		return ordini;
 	}
 	
-	public void delete(long id) throws NamingException, SQLException {
+	public void deleteOrdine(long id) throws NamingException, SQLException {
 		try {
-			OrdineDAO.getFactory().delete(DBAccess.getConnection(), id);
+			OrdineDAO.getFactory().deleteOrdine(DBAccess.getConnection(), id);
+		}  finally {
+			DBAccess.closeConnection();
+		}
+	}
+	
+	public void confermaOrdine(Ordine ordine) throws NamingException, SQLException {
+		try {
+			OrdineDAO.getFactory().confermaOrdine(DBAccess.getConnection(), ordine);
 		}  finally {
 			DBAccess.closeConnection();
 		}

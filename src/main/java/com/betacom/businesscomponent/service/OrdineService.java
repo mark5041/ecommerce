@@ -9,6 +9,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -33,11 +34,11 @@ public class OrdineService {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Transactional
-	public Ordine createOrdine(Ordine ordine) 
+	public Ordine createOrdine(long id) 
 			throws NamingException, SQLException, ParseException {
 		OrdineBC oBC = new OrdineBC();
-		oBC.create(ordine);
-		return ordine;
+		
+		return oBC.createOrdine(id);
 	}
 	
 	@DELETE
@@ -47,6 +48,16 @@ public class OrdineService {
 	public void deleteOrdine(@PathParam("id") long id) 
 			throws NamingException, SQLException {
 		OrdineBC oBC = new OrdineBC();
-		oBC.delete(id);
+		oBC.deleteOrdine(id);
+	}
+	
+	@PUT
+	@Path("/confermaordine")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Transactional
+	public void confermaOrdine(Ordine ordine) 
+			throws NamingException, SQLException {
+		OrdineBC oBC = new OrdineBC();
+		oBC.confermaOrdine(ordine);
 	}
 }

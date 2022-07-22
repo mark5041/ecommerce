@@ -37,4 +37,11 @@ public class OrderConfirmed {
 	public void setQuantita(int quantita) {
 		this.quantita = quantita;
 	}
+	@Override
+	public String toString() {
+		return "OrderConfirmed [cod=" + cod + ", marca=" + marca + ", modello=" + modello + ", prezzo=" + prezzo
+				+ ", quantita=" + quantita + "]";
+	}
+	
+	
 }

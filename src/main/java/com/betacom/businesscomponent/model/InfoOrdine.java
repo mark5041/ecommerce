@@ -29,4 +29,11 @@ public class InfoOrdine {
 	public void setQuantita(int quantita) {
 		this.quantita = quantita;
 	}
+
+	@Override
+	public String toString() {
+		return "InfoOrdine [id_ordine=" + id_ordine + ", id_prodotto=" + id_prodotto + ", quantita=" + quantita + "]";
+	}
+	
+	
 }
